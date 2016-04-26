@@ -1,0 +1,7 @@
+<h1>Intake Edit</h1>
+<form method="post" action="/intakes/<%= @intake.id %>">
+<input id="hidden" type="hidden" name="_method" value="patch">
+<input type="text" name="name" value="<%= @intake.name %>" placeholder="<%= @intake.name %>">
+
+<input class="btn btn-primary" type="submit" name="edit" value="Edit">
+</form>

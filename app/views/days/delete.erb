@@ -1,0 +1,7 @@
+<h1>Deleting <%= @day.name %></h1>
+
+<p>Are you sure you want to delete this day?</p>
+<form method="post" action="/days/<%=@day.id%>">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+<form>

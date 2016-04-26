@@ -1,0 +1,15 @@
+<h1>Edit Day</h1>
+
+<form method="post" action="/days/<%=@day.id%>">
+<input id="hidden" type="hidden" name="_method" value="PATCH">
+<input type="text" name="name" value="<%=@day.name%>"><br><br>
+
+<% @day.intakes.each do |intake| %>
+<h1><i class="fa fa-minus"></i><%= intake.name %></h1>
+<a href="/intakes/<%= intake.id %>/edit"><i class="fa fa-pencil"></i> Edit Intake</a>
+<a href="/intakes/<%= intake.id %>/delete"><i class="fa fa-times"></i> Delete Intake</a>
+<% end %>
+
+<br>
+<input class="btn btn-primary" type="submit" name="update" value="Update">
+</form>

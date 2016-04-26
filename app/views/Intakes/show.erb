@@ -1,0 +1,20 @@
+<h1>Hello <%=@user.username %>!</h1>
+<a href="/days/new"><button type="button" class="btn btn-default">Create A New Track</button></a>
+
+<div class="col-6">
+<% @days.each do |day|%>
+<% if day.user_id == @user.id %>
+<!-- So this pulls all days and checks it it matches the user id before iterating over them -->
+<h2><%= day.name %></h2>
+<a href="/days/<%=day.id%>/edit"><i class="fa fa-pencil"></i> Edit Day</a>
+<a href="/days/<%=day.id%>/delete"><i class="fa fa-times"></i> Delete Day</a>
+<h4><a href="intakes/new/<%=day.id%>"><i class="fa fa-plus"></i> New Intake</a></h4>
+
+<% day.intakes.each do |intake| %>
+<h4></i> <%= intake.name %>
+<a href="/intakes/<%= intake.id %>/edit"><i class="fa fa-pencil"></i>Edit</a>
+<a href="/intakes/<%= intake.id %>/delete"><i class="fa fa-times"></i>Delete</a>
+</h4>
+<% end %>
+<% end %>
+<% end %>

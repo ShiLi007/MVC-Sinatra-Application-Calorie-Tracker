@@ -1,0 +1,6 @@
+<h1>New Intake on <%= @day.name %></h1>
+
+<form method="post" action="/intakes/new/<%= @day.id %>">
+<input type="text" name="name" placeholder="Intake Name">
+<input class="btn btn-primary" type="submit" name="create" value="Create">
+</form>
