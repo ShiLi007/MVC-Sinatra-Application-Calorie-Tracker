@@ -1,5 +1,6 @@
 class DaysController < ApplicationController 
 
+# Makes a new calorie tracking day 
   get '/days/new' do
     redirect_if_not_logged_in
     erb :'/days/new'
@@ -12,6 +13,7 @@ class DaysController < ApplicationController
     redirect '/intakes'
   end
 
+# Tracking day editing
   get '/days/:id/edit' do
     redirect_if_not_logged_in
     @day = Day.find_by_id(params[:id])
@@ -25,6 +27,7 @@ class DaysController < ApplicationController
     redirect '/intakes'
   end
 
+# Delete tracking day
   get '/days/:id/delete' do
     @day = Day.find_by_id(params[:id])
     erb :'days/delete'

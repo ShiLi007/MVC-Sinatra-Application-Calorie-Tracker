@@ -15,6 +15,8 @@ class ApplicationController < Sinatra::Base
   end
 
   
+  # helper methods 
+  
   helpers do
     def redirect_if_not_logged_in
       if !logged_in?

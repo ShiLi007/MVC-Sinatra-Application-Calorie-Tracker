@@ -1,15 +1,6 @@
-<h1>New Intake</h1>
+<h1>New Intake on <%= @day.name %></h1>
 
-<form method="post" action="/intakes/new">
-<input type="text" name="name" placeholder="Intake Name">
-
-<br>
-<label>Add To An Existing day</label><br>
-<% @days.each do |day| %>
-<% if day.user_id == @user.id %>
-<input type="checkbox" name="day_id" value="<%=day.id%>"><%=day.name%><br>
-<% end %>
-<% end %>
-<br>
+<form method="post" action="/intakes/new/<%= @day.id %>">
+<input type="text" name="name" placeholder="Intake Source">
 <input class="btn btn-primary" type="submit" name="create" value="Create">
 </form>

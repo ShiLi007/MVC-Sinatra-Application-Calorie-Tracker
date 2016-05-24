@@ -7,24 +7,11 @@ get '/intakes' do
     erb :'intakes/show'
   end
 
-# Makes a new intake
-  get '/intakes/new' do
-    redirect_if_not_logged_in
-    @user = current_user
-    @days = Day.all
-    erb :'/intakes/new'
-  end
-
-  post '/intakes/new' do
-    Intake.create(name: params[:name], day_id: params[:day_id])
-    redirect '/intakes'
-    end
-
-# Builds a new intake associated with the days ID
+# Makes a new intake associated with the day
   get '/intakes/new/:id' do
     redirect_if_not_logged_in
     @day = Day.find_by_id(params[:id])
-    erb :'/intakes/new_on_day'
+    erb :'/intakes/new'
   end
 
   post '/intakes/new/:id' do
@@ -33,7 +20,7 @@ get '/intakes' do
     redirect '/intakes'
   end
 
-# intake editing
+# Edit intake 
   get '/intakes/:id/edit' do
     @intake = Intake.find_by_id(params[:id])
     erb :'/intakes/edit'
@@ -46,7 +33,7 @@ get '/intakes' do
     redirect '/intakes'
   end
 
-# intake deletion
+# Delete intake 
   get '/intakes/:id/delete' do 
     @intake = Intake.find_by_id(params[:id])
     erb :'/intakes/delete'
