@@ -1,4 +1,5 @@
-# Todoo
+# Calorie Tracker App
+This is an app built in sinatra
 
 To get this running, clone this repo. 
 
